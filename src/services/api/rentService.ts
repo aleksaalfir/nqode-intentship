@@ -10,31 +10,40 @@ const getAllNotReturnedRentedBooks = () => {
         sort: 'id'
       }
     })
-    .then((res) => res.data)
-    .catch((err) => err);
+    .then((res) => res.data);
 };
 
 const cancelRent = (id: string) => {
-  return axios
-    .put(`/rent/close/${id}`)
-    .then((res) => res)
-    .catch((err) => err);
+  return axios.put(`/rent/close/${id}`).then((res) => res);
 };
 
 const extendRent = (id: string, days: string) => {
-  return axios
-    .put(`/rent/${id}?additionalRentPeriod=${days}`)
-    .then((res) => res)
-    .catch((err) => err);
+  return axios.put(`/rent/${id}?additionalRentPeriod=${days}`).then((res) => res);
 };
 
 const rentBook = (id: string, days: string) => {
-  return axios
-    .post(`/rent/book/${id}/user?rentPeriod=${days}`)
-    .then((res) => res)
-    .catch((err) => err);
+  return axios.post(`/rent/book/${id}/user?rentPeriod=${days}`).then((res) => res);
 };
 
-const rentService = { getAllNotReturnedRentedBooks, cancelRent, extendRent, rentBook };
+const getUserRentedBooks = (id: string, current: string) => {
+  return axios
+    .get(`/rent/user/${id}`, {
+      params: {
+        current: current,
+        page: 0,
+        size: 10,
+        sort: 'id'
+      }
+    })
+    .then((res) => res.data);
+};
+
+const rentService = {
+  getAllNotReturnedRentedBooks,
+  cancelRent,
+  extendRent,
+  rentBook,
+  getUserRentedBooks
+};
 
 export default rentService;

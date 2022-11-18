@@ -6,6 +6,7 @@ import classes from './Profile.module.scss';
 import RentHistory from './RentHistory/RentHistory';
 import UserAbout from './UserAbout/UserAbout';
 import axios from '../../axios/axiosConfig';
+import rentService from 'services/api/rentService';
 
 interface User {
   id: number;
@@ -23,6 +24,8 @@ const Profile: React.FC = () => {
 
   const userId = authService.getIdFromJwt();
 
+  const { getUserRentedBooks } = rentService;
+
   const getUser = () => {
     axios
       .get(`/user/${userId}`)
@@ -33,16 +36,14 @@ const Profile: React.FC = () => {
   };
 
   const getCurrentlyRentedBooks = () => {
-    axios.get(`/rent/user/${userId}?current=true`).then((res) => {
-      console.log(res);
-
-      setCurrentlyRented(res.data.content);
+    getUserRentedBooks(userId, 'true').then((data) => {
+      setCurrentlyRented(data.content);
     });
   };
 
   const getRentHistory = () => {
-    axios.get(`/rent/user/${userId}?current=false`).then((res) => {
-      setRentHistory(res.data.content);
+    getUserRentedBooks(userId, 'false').then((data) => {
+      setRentHistory(data.content);
     });
   };
 
