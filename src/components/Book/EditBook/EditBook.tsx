@@ -6,10 +6,13 @@ import { useNavigate, useParams } from 'react-router-dom';
 import bookService from 'services/api/bookService';
 import Input from 'components/core/Input/Input';
 import Book from 'model/Book';
+import toastService from 'services/toastService';
+import { ToastContainer } from 'react-toastify';
 
 const EditBook: React.FC = () => {
   const { id } = useParams();
   const { getBook, editBook, deleteBook } = bookService;
+  const { toastError, toastSuccess } = toastService;
   const navigate = useNavigate();
 
   const [book, setBook] = useState<Book>({} as Book);
@@ -27,22 +30,29 @@ const EditBook: React.FC = () => {
   };
 
   const deleteBookHandler = (): void => {
-    deleteBook(book.id).then((res) => {
-      navigate('/books');
-    });
+    deleteBook(book.id)
+      .then((res) => {
+        toastSuccess('Book successfully deleted.');
+        navigate('/books');
+      })
+      .catch(() => toastError('Something went wrong. Try again later.'));
   };
 
   const editBookHandler = (): void => {
-    editBook(book.id, book).then((data) => setBook(data));
+    editBook(book.id, book)
+      .then((data) => {
+        setBook(data);
+        toastSuccess('Book successfully updated.');
+      })
+      .catch(() => toastError('Something went wrong. Try again later.'));
   };
 
   const getBookHanlder = () => {
     getBook(id!)
       .then((res) => {
-        console.log(res);
         setBook(res);
       })
-      .catch((err) => console.log(err));
+      .catch(() => toastError('Something went wrong. Try again later.'));
   };
 
   useEffect(() => {
@@ -94,6 +104,7 @@ const EditBook: React.FC = () => {
           <Button name="Delete" type="danger" clickHandler={deleteBookHandler} />
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
