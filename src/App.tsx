@@ -5,9 +5,10 @@ import AdminBooksPage from 'pages/AdminBooksPage';
 import ProfilePage from 'pages/ProfilePage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserBookPage from 'pages/User/UserBookPage';
-import BookDetailsPage from 'pages/BookDetailsPage';
 import ManageUsersPage from 'pages/Admin/ManageUsersPage';
+import EditBookPage from 'pages/Admin/EditBookPage';
 import RentedBooksPage from 'pages/Admin/RentedBooksPage';
+import RentedBookPage from 'pages/Admin/RentedBookPage';
 
 const App = () => {
   return (
@@ -17,10 +18,11 @@ const App = () => {
         <Route path="/books" element={<AdminBooksPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/book/:id" element={<UserBookPage />} />
-        <Route path="/book/edit/:id" element={<BookDetailsPage />} />
         <Route path="/create-book" element={<CreateBookPage />} />
         <Route path="/manage-users" element={<ManageUsersPage />} />
-        <Route path="/rented-books" element={<RentedBooksPage />} />
+        <Route path="/book/edit/:id" element={<EditBookPage />} />
+        <Route path="/rents" element={<RentedBooksPage />} />
+        <Route path="/rent/:id" element={<RentedBookPage />} />
       </Routes>
     </BrowserRouter>
   );

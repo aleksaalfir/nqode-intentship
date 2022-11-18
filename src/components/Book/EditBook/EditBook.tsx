@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'components/core/Button/Button';
 import image from './book.jpg';
-import classes from './BookDetails.module.scss';
+import classes from './EditBook.module.scss';
 import { useNavigate, useParams } from 'react-router-dom';
 import bookService from 'services/api/bookService';
-import authService from 'services/authService';
 import Input from 'components/core/Input/Input';
 import Book from 'model/Book';
 
-const BookDetails: React.FC = () => {
+const EditBook: React.FC = () => {
   const { id } = useParams();
   const { getBook, editBook, deleteBook } = bookService;
   const navigate = useNavigate();
@@ -29,12 +28,12 @@ const BookDetails: React.FC = () => {
 
   const deleteBookHandler = (): void => {
     deleteBook(book.id).then((res) => {
-      navigate('/');
+      navigate('/books');
     });
   };
 
   const editBookHandler = (): void => {
-    editBook(book.id, book).then((res) => window.location.reload());
+    editBook(book.id, book).then((data) => setBook(data));
   };
 
   const getBookHanlder = () => {
@@ -99,4 +98,4 @@ const BookDetails: React.FC = () => {
   );
 };
 
-export default BookDetails;
+export default EditBook;

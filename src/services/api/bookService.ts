@@ -8,7 +8,7 @@ const getBook = (id: string) => {
 };
 
 const editBook = (id: string, book: Book) => {
-  return axios.put<Book>(`$/book/${id}`, book).then((res) => {
+  return axios.put<Book>(`/book/${id}`, book).then((res) => {
     return res.data;
   });
 };

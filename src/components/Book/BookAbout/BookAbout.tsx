@@ -74,14 +74,21 @@ const BookAbout: React.FC = () => {
             name={'days'}
             setValue={changeDaysHandler}
           />
+          <div className={classes['c-book-details__buttons']}>
+            <Button name={'RENT'} type={'primary'} />
+          </div>
+          <div className={classes['c-book-details__buttons']}>
+            <Button name={'Rent'} clickHandler={rentBookHandler} type={'primary'} />
+            {isAdministrator() ? (
+              <Button
+                name={'Create copy'}
+                clickHandler={createBookCopyHandler}
+                type={'secondary'}
+              />
+            ) : null}
+          </div>
+          {isAdministrator() ? <Link to={`/book/edit/${book.id}`}>Edit book</Link> : null}
         </div>
-        <div className={classes['c-book-details__buttons']}>
-          <Button name={'Rent'} clickHandler={rentBookHandler} type={'primary'} />
-          {isAdministrator() ? (
-            <Button name={'Create copy'} clickHandler={createBookCopyHandler} type={'secondary'} />
-          ) : null}
-        </div>
-        {isAdministrator() ? <Link to={`/book/edit/${book.id}`}>Edit book</Link> : null}
       </div>
     </div>
   );

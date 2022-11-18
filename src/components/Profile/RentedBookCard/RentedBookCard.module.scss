@@ -10,9 +10,17 @@
 
   border-radius: 8px;
 
+  color: $color-white;
   background-color: $color-blue;
 
   &--secondary {
     background-color: gray;
+
+    color: black;
+  }
+
+  &__exten-rent {
+    display: flex;
+    align-items: center;
   }
 }
