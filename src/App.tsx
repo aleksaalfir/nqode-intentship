@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import UserBookPage from 'pages/User/UserBookPage';
 import BookDetailsPage from 'pages/BookDetailsPage';
 import ManageUsersPage from 'pages/Admin/ManageUsersPage';
+import RentedBooksPage from 'pages/Admin/RentedBooksPage';
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/book/edit/:id" element={<BookDetailsPage />} />
         <Route path="/create-book" element={<CreateBookPage />} />
         <Route path="/manage-users" element={<ManageUsersPage />} />
+        <Route path="/rented-books" element={<RentedBooksPage />} />
       </Routes>
     </BrowserRouter>
   );

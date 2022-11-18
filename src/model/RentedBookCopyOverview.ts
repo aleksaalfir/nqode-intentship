@@ -2,7 +2,7 @@ interface RentedBookCopyOverview {
   author: string;
   cancelRentDate: string;
   endRentDate: string;
-  id: number | string;
+  id: string;
   identifier: string;
   startRentDate: string;
   title: string;

@@ -2,15 +2,19 @@ import React from 'react';
 import RentedBookCopy from 'model/RentedBookCopy';
 import classes from './RentedBookCard.module.scss';
 import RentedBookCopyOverview from 'model/RentedBookCopyOverview';
+import Button from 'components/core/Button/Button';
+import { Link } from 'react-router-dom';
 
 interface RentedBookCardProps {
   history?: boolean;
   book: RentedBookCopyOverview;
+  clickHandler?: (id: string) => void;
 }
 
 const RentedBookCard: React.FC<RentedBookCardProps> = ({
   book: { id, identifier, title, author, startRentDate, endRentDate },
-  history
+  history,
+  clickHandler
 }) => {
   return (
     <div
@@ -20,12 +24,19 @@ const RentedBookCard: React.FC<RentedBookCardProps> = ({
           : `${classes['c-rented-book-card']}`
       }
     >
-      <div>Rent id: {id}</div>
-      <div>Book copy id: {identifier}</div>
+      <div>
+        Rent id:{' '}
+        <Link to={`/rent/${id}`} style={{ color: 'white' }}>
+          {id}
+        </Link>
+      </div>
       <div>Book title: {title}</div>
       <div>Book author: {author}</div>
       <div>From: {startRentDate}</div>
       <div>To: {endRentDate}</div>
+      {clickHandler ? (
+        <Button clickHandler={() => clickHandler(id)} name="Cancel rent" type={'danger'} />
+      ) : null}
     </div>
   );
 };
