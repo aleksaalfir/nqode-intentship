@@ -4,7 +4,11 @@ import { Link } from 'react-router-dom';
 import classes from './BookCard.module.scss';
 import image from '../../../util/327752.jpeg';
 
-const BookCard: React.FC<Book> = ({ id, title, author, numOfCopies, imagePath }) => {
+interface BookProps {
+  book: Book;
+}
+
+const BookCard: React.FC<BookProps> = ({ book: { id, title, author, numOfCopies } }) => {
   return (
     <Link to={`/book/${id}`} className={classes['c-book-card']}>
       <div className={classes['c-book-card__image-holder']}>

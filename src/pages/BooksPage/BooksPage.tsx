@@ -13,10 +13,11 @@ const BooksPage: React.FC = () => {
 
   const searchBooksHandler = (): void => {
     getBooks().then((data) => {
-      const dataBooks: Book[] = data.content;
+      const { content: dataBooks } = data;
+
       setBooks(
         dataBooks.filter(
-          (book) =>
+          (book: Book) =>
             book.title.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase()) ||
             book.author.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase())
         )
@@ -44,17 +45,7 @@ const BooksPage: React.FC = () => {
       </div>
       <div className={classes['c-admin-books__books']}>
         {books.map((book, index) => {
-          return (
-            <BookCard
-              key={index}
-              id={book.id}
-              title={book.title}
-              author={book.author}
-              description={book.description}
-              imagePath={book.imagePath}
-              numOfCopies={book.numOfCopies}
-            />
-          );
+          return <BookCard book={book} key={index} />;
         })}
       </div>
     </div>
