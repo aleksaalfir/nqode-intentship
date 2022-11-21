@@ -22,3 +22,15 @@ export const deleteBook = (id: string) => {
 export const createBook = (book: Book) => {
   return axios.post(`/book`, book).then((res) => res);
 };
+
+export const getBooks = () => {
+  return axios
+    .get(`/book`, {
+      params: {
+        page: 0,
+        size: 10,
+        sort: 'id'
+      }
+    })
+    .then((res) => res.data);
+};
