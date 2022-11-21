@@ -1,0 +1,20 @@
+@import 'variables.scss';
+
+.c-rented-book-details {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: $space;
+
+  &__extend-rent {
+    display: flex;
+    align-items: center;
+  }
+
+  &__detail {
+    margin-bottom: $space-s;
+
+    font-size: $fs-large;
+    color: $color-gray;
+  }
+}

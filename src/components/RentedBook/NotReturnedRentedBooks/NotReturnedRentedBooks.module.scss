@@ -1,0 +1,8 @@
+@import 'variables.scss';
+
+.c-not-returned-books {
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: $space-l 0;
+}

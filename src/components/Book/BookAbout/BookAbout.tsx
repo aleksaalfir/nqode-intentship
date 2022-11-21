@@ -9,6 +9,8 @@ import Input from 'components/core/Input/Input';
 import bookService from 'services/api/bookService';
 import rentService from 'services/api/rentService';
 import bookCopyService from 'services/api/bookCopyService';
+import toastService from 'services/toastService';
+import { ToastContainer } from 'react-toastify';
 
 interface BookCopy {
   id: null;
@@ -25,6 +27,7 @@ const BookAbout: React.FC = () => {
   const { getBook } = bookService;
   const { rentBook } = rentService;
   const { createBookCopy } = bookCopyService;
+  const { toastError, toastSuccess } = toastService;
 
   const fetchBookHandler = () => {
     getBook(id!).then((data) => setBook(data));
@@ -32,15 +35,20 @@ const BookAbout: React.FC = () => {
 
   const rentBookHandler = () => {
     rentBook(book.id, days)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then(() => {
+        toastSuccess(`You have successfully rented this book for ${days} days.`);
+      })
+      .catch(() => toastError('Something went wrong. Try again later.'));
   };
 
   const createBookCopyHandler = () => {
     const data: BookCopy = { id: null, identifier: crypto.randomUUID(), bookId: `${book.id}` };
     createBookCopy(id, data)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then(() => {
+        toastSuccess(`Book copy created!`);
+        fetchBookHandler();
+      })
+      .catch(() => toastError('Something went wrong. Try again later.'));
   };
 
   const changeDaysHandler = (value: string) => {
@@ -74,15 +82,20 @@ const BookAbout: React.FC = () => {
             name={'days'}
             setValue={changeDaysHandler}
           />
+          <div className={classes['c-book-details__buttons']}>
+            <Button name={'Rent'} clickHandler={rentBookHandler} type={'primary'} />
+            {isAdministrator() ? (
+              <Button
+                name={'Create copy'}
+                clickHandler={createBookCopyHandler}
+                type={'secondary'}
+              />
+            ) : null}
+            {isAdministrator() ? <Link to={`/book/edit/${book.id}`}>Edit book</Link> : null}
+          </div>
         </div>
-        <div className={classes['c-book-details__buttons']}>
-          <Button name={'Rent'} clickHandler={rentBookHandler} type={'primary'} />
-          {isAdministrator() ? (
-            <Button name={'Create copy'} clickHandler={createBookCopyHandler} type={'secondary'} />
-          ) : null}
-        </div>
-        {isAdministrator() ? <Link to={`/book/edit/${book.id}`}>Edit book</Link> : null}
       </div>
+      <ToastContainer />
     </div>
   );
 };
