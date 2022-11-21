@@ -38,13 +38,25 @@ const logout = () => {
   window.location.replace('/login');
 };
 
+const isTokenExpired = (): boolean => {
+  const token = getDecodedJwt();
+  let currentDate = new Date();
+
+  if (token!.exp * 1000 < currentDate.getTime()) {
+    localStorage.removeItem('token');
+    return true;
+  }
+  return false;
+};
+
 const authService = {
   getDecodedJwt,
   getRoleFromJwt,
   getIdFromJwt,
   isAdministrator,
   isUser,
-  logout
+  logout,
+  isTokenExpired
 };
 
 export default authService;
