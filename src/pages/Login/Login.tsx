@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import axios from '../../axios/axiosConfig';
 import Button from 'components/core/Button/Button';
 import Input from 'components/core/Input/Input';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import classes from './Login.module.scss';
+import authService from 'services/authService';
 
 const Login: React.FC = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [inputError, setInputError] = useState(false);
-  const navigate = useNavigate();
 
   const changeEmailHandler = (value: string): void => {
     setLoginData((prevLoginData) => ({ ...prevLoginData, email: value }));
@@ -24,7 +24,7 @@ const Login: React.FC = () => {
       .then((response) => {
         if (response.status === 200) {
           localStorage.setItem('token', response.data.accessToken);
-          navigate('/profile');
+          window.location.replace('/books');
         }
       })
       .catch((err) => {

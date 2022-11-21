@@ -33,12 +33,18 @@ const isUser = (): boolean => {
   return getRoleFromJwt() === 'USER';
 };
 
+const logout = () => {
+  localStorage.removeItem('token');
+  window.location.replace('/login');
+};
+
 const authService = {
   getDecodedJwt,
   getRoleFromJwt,
   getIdFromJwt,
   isAdministrator,
-  isUser
+  isUser,
+  logout
 };
 
 export default authService;

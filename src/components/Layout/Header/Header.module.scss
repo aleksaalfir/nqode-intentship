@@ -30,11 +30,14 @@
   }
 
   &__nav-link {
+    display: inline-block;
+
     height: 100%;
     margin: 0 $space;
-    display: inline-block;
+
     text-decoration: none;
     font-size: $fs-medium;
+    color: $color-white;
 
     &:hover {
       color: $color-black;
