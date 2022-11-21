@@ -1,6 +1,4 @@
-import authService from './authService';
-
-const { isAdministrator } = authService;
+import { isAdministrator } from './authService';
 
 const userNav = [
   { url: '/books', text: 'Books' },
@@ -15,10 +13,6 @@ const adminNav = [
   { url: '/manage-users', text: 'Users' }
 ];
 
-const getAllowedNavbarLinks = () => {
+export const getAllowedNavbarLinks = () => {
   return isAdministrator() ? adminNav : userNav;
 };
-
-const navBarService = { getAllowedNavbarLinks };
-
-export default navBarService;

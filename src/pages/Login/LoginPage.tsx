@@ -3,10 +3,9 @@ import axios from '../../axios/axiosConfig';
 import Button from 'components/core/Button/Button';
 import Input from 'components/core/Input/Input';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import classes from './Login.module.scss';
-import authService from 'services/authService';
+import classes from './LoginPage.module.scss';
 
-const Login: React.FC = () => {
+const LoginPage: React.FC = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [inputError, setInputError] = useState(false);
 
@@ -74,4 +73,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

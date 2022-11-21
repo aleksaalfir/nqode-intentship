@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import Button from 'components/core/Button/Button';
 import Input from 'components/core/Input/Input';
-import classes from './CreateBook.module.scss';
+import classes from './CreateBookPage.module.scss';
 import Book from 'model/Book';
 import { useNavigate } from 'react-router-dom';
-import bookService from 'services/api/bookService';
+import { createBook } from 'services/api/bookService';
 
-const CreateBook: React.FC = () => {
+const CreateBookPage: React.FC = () => {
   const [book, setBook] = useState<Book>({} as Book);
   const navigate = useNavigate();
-  const { createBook } = bookService;
 
   const changeHandler = (value: string, prop?: string): void => {
     setBook((prevBook) => ({ ...prevBook, [prop!]: value }));
@@ -73,4 +72,4 @@ const CreateBook: React.FC = () => {
   );
 };
 
-export default CreateBook;
+export default CreateBookPage;

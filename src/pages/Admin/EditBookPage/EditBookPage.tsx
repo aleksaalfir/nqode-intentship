@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import Button from 'components/core/Button/Button';
 import image from './book.jpg';
-import classes from './EditBook.module.scss';
+import classes from './EditBookPage.module.scss';
 import { useNavigate, useParams } from 'react-router-dom';
-import bookService from 'services/api/bookService';
+import { getBook, editBook, deleteBook } from 'services/api/bookService';
 import Input from 'components/core/Input/Input';
 import Book from 'model/Book';
-import toastService from 'services/toastService';
+import { toastError, toastSuccess } from 'services/toastService';
 import { ToastContainer } from 'react-toastify';
 
-const EditBook: React.FC = () => {
+const EditBookPage: React.FC = () => {
   const { id } = useParams();
-  const { getBook, editBook, deleteBook } = bookService;
-  const { toastError, toastSuccess } = toastService;
   const navigate = useNavigate();
 
   const [book, setBook] = useState<Book>({} as Book);
@@ -109,4 +107,4 @@ const EditBook: React.FC = () => {
   );
 };
 
-export default EditBook;
+export default EditBookPage;

@@ -2,7 +2,6 @@ import React from 'react';
 import RentedBookCard from 'components/Profile/RentedBookCard/RentedBookCard';
 import RentedBookCopyOverview from 'model/RentedBookCopyOverview';
 import classes from './NotReturnedRentedBooks.module.scss';
-import rentService from 'services/api/rentService';
 
 interface NotReturnedRentedBooksProps {
   books: RentedBookCopyOverview[];

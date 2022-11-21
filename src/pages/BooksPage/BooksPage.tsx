@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from '../../axios/axiosConfig';
-import BookCard from './BookCard/BookCard';
-import classes from './Books.module.scss';
+import BookCard from '../../components/Book/BookCard/BookCard';
+import classes from './BooksPage.module.scss';
 import Book from 'model/Book';
 
-const Books: React.FC = () => {
+const BooksPage: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
 
   const getBooks = (): void => {
@@ -44,4 +44,4 @@ const Books: React.FC = () => {
   );
 };
 
-export default Books;
+export default BooksPage;

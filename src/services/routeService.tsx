@@ -1,35 +1,37 @@
-import ManageUsersPage from 'pages/Admin/ManageUsersPage';
-import AdminBooksPage from 'pages/AdminBooksPage';
-import CreateBookPage from 'pages/CreateBookPage';
-import Login from 'pages/Login/Login';
-import ProfilePage from 'pages/ProfilePage';
-import UserBookPage from 'pages/User/UserBookPage';
+import CreateBookPage from 'pages/Admin/CreateBookPage/CreateBookPage';
+import EditBookPage from 'pages/Admin/EditBookPage/EditBookPage';
+import RentedBooksPage from 'pages/Admin/RentedBooksPage/RentedBooksPage';
+import UsersPage from 'pages/Admin/UsersPage/UsersPage';
+import BookAboutPage from 'pages/BookAboutPage/BookAboutPage';
+import BooksPage from 'pages/BooksPage/BooksPage';
+import Login from 'pages/Login/LoginPage';
+import ProfilePage from 'pages/ProfilePage/ProfilePage';
 import { Navigate, Route } from 'react-router-dom';
-import authService from './authService';
+import { isAdministrator, isUser } from './authService';
 
-const { isAdministrator, isUser } = authService;
-
-const openRoutes = [{ path: '/login', element: <Login /> }];
+const openRoutes = [{ path: '/login', element: <Login />, layout: false }];
 
 const userRoutes = [
-  { path: '/books', element: <AdminBooksPage /> },
-  { path: '/profile', element: <ProfilePage /> },
-  { path: '/book/:id', element: <UserBookPage /> }
+  { path: '/books', element: <BooksPage />, layout: true },
+  { path: '/profile', element: <ProfilePage />, layout: true },
+  { path: '/book/:id', element: <BookAboutPage />, layout: true }
 ];
 
 const adminRoutes = [
-  { path: '/books', element: <AdminBooksPage /> },
-  { path: '/profile', element: <ProfilePage /> },
-  { path: '/book/:id', element: <UserBookPage /> },
-  { path: '/create-book', element: <CreateBookPage /> },
-  { path: '/manage-users', element: <ManageUsersPage /> }
+  { path: '/books', element: <BooksPage />, layout: true },
+  { path: '/profile', element: <ProfilePage />, layout: true },
+  { path: '/book/:id', element: <BookAboutPage />, layout: true },
+  { path: '/create-book', element: <CreateBookPage />, layout: true },
+  { path: '/manage-users', element: <UsersPage />, layout: true },
+  { path: '/rents', element: <RentedBooksPage />, layout: true },
+  { path: '/book/edit/:id', element: <EditBookPage />, layout: true }
 ];
 
-const getAllowedRoutes = () => {
+export const getAllowedRoutes = () => {
   return isAdministrator() ? adminRoutes : isUser() ? userRoutes : openRoutes;
 };
 
-const getRedirect = () => {
+export const getRedirect = () => {
   return isAdministrator() ? (
     <Route path="*" element={<Navigate to="/profile" />} />
   ) : isUser() ? (
@@ -38,7 +40,3 @@ const getRedirect = () => {
     <Route path="*" element={<Navigate to="/login" />} />
   );
 };
-
-const routeService = { getAllowedRoutes, getRedirect };
-
-export default routeService;

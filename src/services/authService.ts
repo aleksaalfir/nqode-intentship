@@ -10,35 +10,35 @@ interface TokenData {
   userRole: string;
 }
 
-const getDecodedJwt = (): TokenData | null => {
+export const getDecodedJwt = (): TokenData | null => {
   const token: string | null = localStorage.getItem('token');
   return token ? jwtDecode(token) : null;
 };
 
-const getRoleFromJwt = (): string => {
+export const getRoleFromJwt = (): string => {
   const decodedJwt = getDecodedJwt();
   return decodedJwt ? decodedJwt.userRole : '';
 };
 
-const getIdFromJwt = (): string => {
+export const getIdFromJwt = (): string => {
   const decodedJwt = getDecodedJwt();
   return decodedJwt ? decodedJwt.userId : '';
 };
 
-const isAdministrator = (): boolean => {
+export const isAdministrator = (): boolean => {
   return getRoleFromJwt() === 'ADMINISTRATOR';
 };
 
-const isUser = (): boolean => {
+export const isUser = (): boolean => {
   return getRoleFromJwt() === 'USER';
 };
 
-const logout = () => {
+export const logout = () => {
   localStorage.removeItem('token');
   window.location.replace('/login');
 };
 
-const isTokenExpired = (): boolean => {
+export const isTokenExpired = (): boolean => {
   const token = getDecodedJwt();
   let currentDate = new Date();
 
@@ -48,15 +48,3 @@ const isTokenExpired = (): boolean => {
   }
   return false;
 };
-
-const authService = {
-  getDecodedJwt,
-  getRoleFromJwt,
-  getIdFromJwt,
-  isAdministrator,
-  isUser,
-  logout,
-  isTokenExpired
-};
-
-export default authService;
