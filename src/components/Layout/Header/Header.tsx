@@ -1,22 +1,51 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { getDecodedJwt, logout } from 'services/authService';
-import { getAllowedNavbarLinks } from 'services/navBarService';
 import classes from './Header.module.scss';
+import { isAdministrator } from 'services/authService';
 
 const Header = () => {
+  const getUserLinks = () => {
+    return (
+      <>
+        <NavLink to={'/books'} className={classes['c-header__nav-link']}>
+          Books
+        </NavLink>
+        <NavLink to={'/profile'} className={classes['c-header__nav-link']}>
+          Profile
+        </NavLink>
+      </>
+    );
+  };
+
+  const getAdminLinks = () => {
+    return (
+      <>
+        <NavLink to={'/books'} className={classes['c-header__nav-link']}>
+          Books
+        </NavLink>
+        <NavLink to={'/create-book'} className={classes['c-header__nav-link']}>
+          Add book
+        </NavLink>
+        <NavLink to={'/profile'} className={classes['c-header__nav-link']}>
+          Profile
+        </NavLink>
+        <NavLink to={'/rents'} className={classes['c-header__nav-link']}>
+          Rents
+        </NavLink>
+        <NavLink to={'/manage-users'} className={classes['c-header__nav-link']}>
+          Users
+        </NavLink>
+      </>
+    );
+  };
+
   return (
     <header className={classes['c-header']}>
       <div className={classes['c-header__logo']}>nQode</div>
       <nav className={classes['c-header__nav']}>
         <ul className={classes['c-header__nav-links']}>
-          {getAllowedNavbarLinks().map((link, index) => {
-            return (
-              <NavLink to={link.url} key={index} className={classes['c-header__nav-link']}>
-                {link.text}
-              </NavLink>
-            );
-          })}
+          {isAdministrator() ? getAdminLinks() : getUserLinks()}
           {getDecodedJwt() ? (
             <li className={classes['c-header__nav-link']} onClick={() => logout()}>
               Log out

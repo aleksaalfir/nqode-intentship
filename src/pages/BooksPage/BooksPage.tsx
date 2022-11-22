@@ -15,13 +15,13 @@ const BooksPage: React.FC = () => {
     getBooks().then((data) => {
       const { content: dataBooks } = data;
 
-      setBooks(
-        dataBooks.filter(
-          (book: Book) =>
-            book.title.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase()) ||
-            book.author.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase())
-        )
+      const filteredBooks = dataBooks.filter(
+        (book: Book) =>
+          book.title.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase()) ||
+          book.author.toLocaleLowerCase().includes(searchInput.toLocaleLowerCase())
       );
+
+      setBooks(filteredBooks);
     });
   };
 
