@@ -21,7 +21,6 @@ const Dashboard = () => {
     if (pathname === '/dashboard' || pathname === '/dashboard/') {
       navigate('/dashboard/books');
     }
-    console.log(pathname);
   }, [pathname]);
 
   return (
