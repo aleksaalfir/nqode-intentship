@@ -5,6 +5,8 @@
   flex-direction: column;
   width: 100%;
 
+  margin-right: $space;
+
   &__label {
     margin-bottom: $space-xs;
     font-size: $fs-large;

@@ -1,0 +1,31 @@
+@import 'variables.scss';
+
+.c-admin-books {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  &__search-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+
+    width: 100%;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    width: 30%;
+  }
+
+  &__books {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    margin-top: $space-xl;
+  }
+}

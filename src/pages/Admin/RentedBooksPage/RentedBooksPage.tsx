@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import RentedBookCard from 'components/Profile/RentedBookCard/RentedBookCard';
 import RentedBookCopyOverview from 'model/RentedBookCopyOverview';
-import classes from './RentedBooks.module.scss';
-import NotReturnedRentedBooks from './NotReturnedRentedBooks/NotReturnedRentedBooks';
-import rentService from 'services/api/rentService';
-import toastService from 'services/toastService';
+import classes from './RentedBooksPage.module.scss';
+import NotReturnedRentedBooks from '../../../components/RentedBook/NotReturnedRentedBooks/NotReturnedRentedBooks';
+import { getAllNotReturnedRentedBooks, cancelRent, extendRent } from 'services/api/rentService';
+import { toastError, toastSuccess } from 'services/toastService';
 import { ToastContainer } from 'react-toastify';
 
-const RentedBooks: React.FC = () => {
+const RentedBooksPage: React.FC = () => {
   const [notReturnedBooks, setNotReturnedBooks] = useState<RentedBookCopyOverview[]>([]);
-
-  const { getAllNotReturnedRentedBooks, cancelRent, extendRent } = rentService;
-  const { toastError, toastSuccess } = toastService;
 
   const cancelRentHandler = (id: string) => {
     cancelRent(id)
@@ -57,4 +54,4 @@ const RentedBooks: React.FC = () => {
   );
 };
 
-export default RentedBooks;
+export default RentedBooksPage;

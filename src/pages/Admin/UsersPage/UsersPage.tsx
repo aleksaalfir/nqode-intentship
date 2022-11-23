@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import classes from './Users.module.scss';
-import axios from '../../axios/axiosConfig';
-import User from './User/User';
+import classes from './UsersPage.module.scss';
+import axios from '../../../axios/axiosConfig';
+import User from '../../../components/Users/User/User';
 import UserModel from 'model/UserModel';
 import { ToastContainer, toast } from 'react-toastify';
-import toastService from 'services/toastService';
+import { toastError, toastSuccess } from 'services/toastService';
 
-const Users: React.FC = () => {
+const UsersPage: React.FC = () => {
   const [users, setUsers] = useState<UserModel[]>([]);
 
   const getUsers = (): void => {
@@ -19,10 +19,10 @@ const Users: React.FC = () => {
     axios
       .put(`/user/${id}`, user)
       .then(() => {
-        toastService.toastSuccess(`User with ID: ${id} updated!`);
+        toastSuccess(`User with ID: ${id} updated!`);
       })
       .catch((err) => {
-        toastService.toastError(`Something went wrong. Try again later.`);
+        toastError(`Something went wrong. Try again later.`);
       });
   };
 
@@ -30,10 +30,10 @@ const Users: React.FC = () => {
     axios
       .delete(`/user/${id}`)
       .then(() => {
-        toastService.toastSuccess(`User with ID: ${id} deleted!`);
+        toastSuccess(`User with ID: ${id} deleted!`);
       })
       .catch((err) => {
-        toastService.toastError(`Something went wrong. Try again later.`);
+        toastError(`Something went wrong. Try again later.`);
       });
   };
 
@@ -60,4 +60,4 @@ const Users: React.FC = () => {
   );
 };
 
-export default Users;
+export default UsersPage;

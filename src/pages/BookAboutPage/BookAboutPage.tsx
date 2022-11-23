@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import classes from './BookAbout.module.scss';
+import classes from './BookAboutPage.module.scss';
 import image from 'util/327752.jpeg';
 import { Link, useParams } from 'react-router-dom';
 import Book from 'model/Book';
 import Button from 'components/core/Button/Button';
-import authService from 'services/authService';
+import { isAdministrator } from 'services/authService';
 import Input from 'components/core/Input/Input';
-import bookService from 'services/api/bookService';
-import rentService from 'services/api/rentService';
-import bookCopyService from 'services/api/bookCopyService';
-import toastService from 'services/toastService';
+import { getBook } from 'services/api/bookService';
+import { rentBook } from 'services/api/rentService';
+import { createBookCopy } from 'services/api/bookCopyService';
+import { toastError, toastSuccess } from 'services/toastService';
 import { ToastContainer } from 'react-toastify';
 
 interface BookCopy {
@@ -18,16 +18,10 @@ interface BookCopy {
   bookId: string;
 }
 
-const BookAbout: React.FC = () => {
+const BookAboutPage: React.FC = () => {
   const { id } = useParams();
   const [book, setBook] = useState<Book>({} as Book);
   const [days, setDays] = useState<string>('');
-
-  const { isAdministrator } = authService;
-  const { getBook } = bookService;
-  const { rentBook } = rentService;
-  const { createBookCopy } = bookCopyService;
-  const { toastError, toastSuccess } = toastService;
 
   const fetchBookHandler = () => {
     getBook(id!).then((data) => setBook(data));
@@ -100,4 +94,4 @@ const BookAbout: React.FC = () => {
   );
 };
 
-export default BookAbout;
+export default BookAboutPage;

@@ -1,17 +1,56 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { getDecodedJwt, logout } from 'services/authService';
 import classes from './Header.module.scss';
+import { isAdministrator } from 'services/authService';
 
 const Header = () => {
+  const getUserLinks = () => {
+    return (
+      <>
+        <NavLink to={'/books'} className={classes['c-header__nav-link']}>
+          Books
+        </NavLink>
+        <NavLink to={'/profile'} className={classes['c-header__nav-link']}>
+          Profile
+        </NavLink>
+      </>
+    );
+  };
+
+  const getAdminLinks = () => {
+    return (
+      <>
+        <NavLink to={'/books'} className={classes['c-header__nav-link']}>
+          Books
+        </NavLink>
+        <NavLink to={'/create-book'} className={classes['c-header__nav-link']}>
+          Add book
+        </NavLink>
+        <NavLink to={'/profile'} className={classes['c-header__nav-link']}>
+          Profile
+        </NavLink>
+        <NavLink to={'/rents'} className={classes['c-header__nav-link']}>
+          Rents
+        </NavLink>
+        <NavLink to={'/manage-users'} className={classes['c-header__nav-link']}>
+          Users
+        </NavLink>
+      </>
+    );
+  };
+
   return (
     <header className={classes['c-header']}>
       <div className={classes['c-header__logo']}>nQode</div>
       <nav className={classes['c-header__nav']}>
         <ul className={classes['c-header__nav-links']}>
-          <li className={classes['c-header__nav-link']}>Home</li>
-          <li className={classes['c-header__nav-link']}>Favourite</li>
-          <li className={classes['c-header__nav-link']}>Sales</li>
-          <li className={classes['c-header__nav-link']}>My books</li>
-          <li className={classes['c-header__nav-link']}>Profile</li>
+          {isAdministrator() ? getAdminLinks() : getUserLinks()}
+          {getDecodedJwt() ? (
+            <li className={classes['c-header__nav-link']} onClick={() => logout()}>
+              Log out
+            </li>
+          ) : null}
         </ul>
       </nav>
     </header>

@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const toastError = (message: string) => {
+export const toastError = (message: string) => {
   return toast.error(message, {
     position: 'top-right',
     autoClose: 3000,
@@ -14,7 +14,7 @@ const toastError = (message: string) => {
   });
 };
 
-const toastSuccess = (message: string) => {
+export const toastSuccess = (message: string) => {
   return toast.success(message, {
     position: 'top-right',
     autoClose: 3000,
@@ -26,10 +26,3 @@ const toastSuccess = (message: string) => {
     theme: 'colored'
   });
 };
-
-const toastService = {
-  toastError,
-  toastSuccess
-};
-
-export default toastService;

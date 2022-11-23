@@ -1,6 +1,6 @@
 import axios from '../../axios/axiosConfig';
 
-const getAllNotReturnedRentedBooks = () => {
+export const getAllNotReturnedRentedBooks = () => {
   return axios
     .get('/rent/book', {
       params: {
@@ -13,19 +13,19 @@ const getAllNotReturnedRentedBooks = () => {
     .then((res) => res.data);
 };
 
-const cancelRent = (id: string) => {
+export const cancelRent = (id: string) => {
   return axios.put(`/rent/close/${id}`).then((res) => res);
 };
 
-const extendRent = (id: string, days: string) => {
+export const extendRent = (id: string, days: string) => {
   return axios.put(`/rent/${id}?additionalRentPeriod=${days}`).then((res) => res);
 };
 
-const rentBook = (id: string, days: string) => {
+export const rentBook = (id: string, days: string) => {
   return axios.post(`/rent/book/${id}/user?rentPeriod=${days}`).then((res) => res);
 };
 
-const getUserRentedBooks = (id: string, current: string) => {
+export const getUserRentedBooks = (id: string, current: string) => {
   return axios
     .get(`/rent/user/${id}`, {
       params: {
@@ -37,13 +37,3 @@ const getUserRentedBooks = (id: string, current: string) => {
     })
     .then((res) => res.data);
 };
-
-const rentService = {
-  getAllNotReturnedRentedBooks,
-  cancelRent,
-  extendRent,
-  rentBook,
-  getUserRentedBooks
-};
-
-export default rentService;

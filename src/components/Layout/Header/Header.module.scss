@@ -3,7 +3,7 @@
 .c-header {
   background-color: $color-blue;
   color: $color-white;
-  width: 100%;
+
   padding: $space-l $space-l;
   text-align: center;
   vertical-align: middle;
@@ -30,11 +30,14 @@
   }
 
   &__nav-link {
+    display: inline-block;
+
     height: 100%;
     margin: 0 $space;
-    display: inline-block;
+
     text-decoration: none;
     font-size: $fs-medium;
+    color: $color-white;
 
     &:hover {
       color: $color-black;

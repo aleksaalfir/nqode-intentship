@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import RentedBookCopyOverview from 'model/RentedBookCopyOverview';
-import authService from 'services/authService';
-import CurrentlyRentedBooks from './CurrentlyRentedBooks/CurrentlyRentedBooks';
-import classes from './Profile.module.scss';
-import RentHistory from './RentHistory/RentHistory';
-import UserAbout from './UserAbout/UserAbout';
+import { getIdFromJwt } from 'services/authService';
+import CurrentlyRentedBooks from 'components/Profile/CurrentlyRentedBooks/CurrentlyRentedBooks';
+import classes from './ProfilePage.module.scss';
+import RentHistory from 'components/Profile/RentHistory/RentHistory';
+import UserAbout from 'components/Profile/UserAbout/UserAbout';
 import axios from '../../axios/axiosConfig';
-import rentService from 'services/api/rentService';
+import { getUserRentedBooks } from 'services/api/rentService';
 
 interface User {
   id: number;
@@ -17,14 +17,12 @@ interface User {
   phoneNumber: string;
 }
 
-const Profile: React.FC = () => {
+const ProfilePage: React.FC = () => {
   const [user, setUser] = useState<User>({} as User);
   const [currentlyRented, setCurrentlyRented] = useState<RentedBookCopyOverview[]>([]);
   const [rentHistory, setRentHistory] = useState<RentedBookCopyOverview[]>([]);
 
-  const userId = authService.getIdFromJwt();
-
-  const { getUserRentedBooks } = rentService;
+  const userId = getIdFromJwt();
 
   const getUser = () => {
     axios
@@ -70,4 +68,4 @@ const Profile: React.FC = () => {
   );
 };
 
-export default Profile;
+export default ProfilePage;
