@@ -1,5 +1,5 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import classes from './Dashboard.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,8 +12,18 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import DashboardLink from './DashboardLink';
 import { logout } from 'services/authService';
+import path from 'path';
 
 const Dashboard = () => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (pathname === '/dashboard' || pathname === '/dashboard/') {
+      navigate('/dashboard/books');
+    }
+    console.log(pathname);
+  }, [pathname]);
+
   return (
     <div className={classes['c-dashboard']}>
       <div className={classes['c-dashboard__section']}>
