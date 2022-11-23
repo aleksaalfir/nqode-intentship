@@ -52,8 +52,10 @@
 
   &__buttons {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+
+    width: 40%;
 
     margin-top: $space-s;
   }

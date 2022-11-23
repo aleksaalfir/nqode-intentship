@@ -77,7 +77,7 @@ const User: React.FC<UserProps> = ({ user, editUser, deleteUser }) => {
                 setValue={changeUserValueHandler}
               />
             </div>
-            <div>
+            <div className={classes['c-user__button-holder']}>
               <Button
                 name={'Edit'}
                 clickHandler={() => editUser(userValues.id, userValues)}

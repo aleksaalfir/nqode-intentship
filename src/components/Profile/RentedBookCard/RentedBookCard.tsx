@@ -52,7 +52,7 @@ const RentedBookCard: React.FC<RentedBookCardProps> = ({
               name={'days'}
               setValue={changeDaysHandler}
             />
-            <div style={{ marginTop: '0.5rem' }}>
+            <div className={classes['c-rented-book-card__buttons']}>
               <Button
                 name={'Extend rent'}
                 type={'secondary'}
