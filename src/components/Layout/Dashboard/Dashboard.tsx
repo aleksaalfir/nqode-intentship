@@ -21,7 +21,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const [toggleSections, setToggleSections] = useState(true);
   useEffect(() => {
-    if (pathname === '/dashboard') {
+    if (pathname === '/dashboard' || pathname === '/dashboard/') {
       navigate('/dashboard/books');
     }
   }, [pathname]);

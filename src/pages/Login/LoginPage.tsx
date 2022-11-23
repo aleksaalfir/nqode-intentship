@@ -26,7 +26,7 @@ const LoginPage: React.FC = () => {
         if (response.status === 200) {
           localStorage.setItem('token', response.data.accessToken);
           if (isAdministrator()) {
-            window.location.replace('/dashboard/profile');
+            window.location.replace('/dashboard/rents');
           }
           if (isUser()) {
             window.location.replace('/books');
