@@ -65,6 +65,10 @@
 
     &:hover {
       cursor: pointer;
+
+      color: $color-blue;
+
+      background-color: $color-white;
     }
 
     &--active {
