@@ -85,7 +85,9 @@ const BookAboutPage: React.FC = () => {
                 type={'secondary'}
               />
             ) : null}
-            {isAdministrator() ? <Link to={`/book/edit/${book.id}`}>Edit book</Link> : null}
+            {isAdministrator() ? (
+              <Link to={`/dashboard/book/edit/${book.id}`}>Edit book</Link>
+            ) : null}
           </div>
         </div>
       </div>

@@ -11,6 +11,7 @@ import ProfilePage from 'pages/ProfilePage/ProfilePage';
 import { Navigate, Route, RouteObject, Routes } from 'react-router-dom';
 import { isAdministrator, isUser } from '../../services/authService';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+import Dashboard from 'components/Layout/Dashboard/Dashboard';
 
 const RouteList = () => {
   const getOpenRoutes = () => {
@@ -57,62 +58,15 @@ const RouteList = () => {
   const getAdminRoutes = () => {
     return (
       <React.Fragment>
-        <Route
-          path="/books"
-          element={
-            <StandardLayout>
-              <BooksPage />
-            </StandardLayout>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <StandardLayout>
-              <ProfilePage />
-            </StandardLayout>
-          }
-        />
-        <Route
-          path="/book/:id"
-          element={
-            <StandardLayout>
-              <BookAboutPage />
-            </StandardLayout>
-          }
-        />
-        <Route
-          path="/create-book"
-          element={
-            <StandardLayout>
-              <CreateBookPage />
-            </StandardLayout>
-          }
-        />
-        <Route
-          path="/manage-users"
-          element={
-            <StandardLayout>
-              <UsersPage />
-            </StandardLayout>
-          }
-        />
-        <Route
-          path="/rents"
-          element={
-            <StandardLayout>
-              <RentedBooksPage />
-            </StandardLayout>
-          }
-        />
-        <Route
-          path="/book/edit/:id"
-          element={
-            <StandardLayout>
-              <EditBookPage />
-            </StandardLayout>
-          }
-        />
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="/dashboard/books" element={<BooksPage />} />
+          <Route path="/dashboard/profile" element={<ProfilePage />} />
+          <Route path="/dashboard/book/:id" element={<BookAboutPage />} />
+          <Route path="/dashboard/create-book" element={<CreateBookPage />} />
+          <Route path="/dashboard/manage-users" element={<UsersPage />} />
+          <Route path="/dashboard/rents" element={<RentedBooksPage />} />
+          <Route path="/dashboard/book/edit/:id" element={<EditBookPage />} />
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </React.Fragment>
     );

@@ -1,0 +1,79 @@
+@import 'variables.scss';
+
+.c-dashboard {
+  display: flex;
+
+  width: 100%;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 15%;
+    height: 100vh;
+
+    margin-right: $space-xl;
+    // padding-top: $space-xl;
+
+    background-color: $color-blue;
+  }
+
+  &__section-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+  }
+
+  &__section-secondary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    border-top: 1px solid $color-white;
+  }
+
+  &__nav-link {
+    list-style: none;
+    text-decoration: none;
+    color: $color-white;
+    font-size: $fs-large;
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: $space;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &--active {
+      width: 100%;
+
+      color: $color-blue;
+
+      background-color: $color-white;
+    }
+  }
+
+  &__icon {
+    margin-right: $space-s;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+
+    margin-right: $space-xl;
+    padding-top: $space-xl;
+  }
+}
