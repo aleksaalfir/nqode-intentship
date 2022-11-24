@@ -15,6 +15,8 @@ const UsersPage: React.FC = () => {
     });
   };
 
+  document.title = 'Users';
+
   const editUser = (id: number | string, user: UserModel): void => {
     axios
       .put(`/user/${id}`, user)

@@ -6,7 +6,7 @@ import classes from './Dashboard.module.scss';
 
 interface DashboardLinkProps {
   icon: IconDefinition;
-  text: string;
+  text?: string;
   url: string;
 }
 

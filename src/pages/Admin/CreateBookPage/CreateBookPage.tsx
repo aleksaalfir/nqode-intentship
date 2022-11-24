@@ -10,6 +10,8 @@ const CreateBookPage: React.FC = () => {
   const [book, setBook] = useState<Book>({} as Book);
   const navigate = useNavigate();
 
+  document.title = 'Add book';
+
   const changeHandler = (value: string, prop?: string): void => {
     setBook((prevBook) => ({ ...prevBook, [prop!]: value }));
   };

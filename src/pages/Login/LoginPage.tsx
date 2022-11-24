@@ -11,6 +11,8 @@ const LoginPage: React.FC = () => {
   const [inputError, setInputError] = useState(false);
   const navigate = useNavigate();
 
+  document.title = 'Login';
+
   const changeEmailHandler = (value: string): void => {
     setLoginData((prevLoginData) => ({ ...prevLoginData, email: value }));
   };
@@ -19,8 +21,8 @@ const LoginPage: React.FC = () => {
     setLoginData((prevLoginData) => ({ ...prevLoginData, password: value }));
   };
 
-  const submitLoginHandler = (): void => {
-    axios
+  const submitLoginHandler = async () => {
+    await axios
       .post(`/authenticate`, loginData)
       .then((response) => {
         if (response.status === 200) {

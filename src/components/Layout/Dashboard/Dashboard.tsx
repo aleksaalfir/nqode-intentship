@@ -52,11 +52,23 @@ const Dashboard = () => {
         </div>
       ) : (
         <div className={classes['c-dashboard__section-closed']}>
-          <div className={classes['c-dashboard__section-arrow']}>
-            <FontAwesomeIcon
-              icon={faArrowRight}
-              onClick={() => setToggleSections(!toggleSections)}
-            />
+          <div className={classes['c-dashboard__section-main']}>
+            <div className={classes['c-dashboard__section-arrow']}>
+              <FontAwesomeIcon
+                icon={faArrowRight}
+                onClick={() => setToggleSections(!toggleSections)}
+              />
+            </div>
+            <DashboardLink icon={faBook} url={'/dashboard/books'} />
+            <DashboardLink icon={faPlus} url={'/dashboard/create-book'} />
+            <DashboardLink icon={faChartSimple} url={'/dashboard/rents'} />
+            <DashboardLink icon={faUsers} url={'/dashboard/manage-users'} />
+          </div>
+          <div className={classes['c-dashboard__section-secondary']}>
+            <DashboardLink icon={faUser} url={'/dashboard/profile'} />
+            <li className={classes['c-dashboard__nav-link']} onClick={() => logout()}>
+              <FontAwesomeIcon icon={faRightFromBracket} className={classes['c-dashboard__icon']} />
+            </li>
           </div>
         </div>
       )}

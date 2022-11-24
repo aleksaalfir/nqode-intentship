@@ -5,6 +5,7 @@ import RentedBookCopyOverview from 'model/RentedBookCopyOverview';
 import Button from 'components/core/Button/Button';
 import { Link } from 'react-router-dom';
 import Input from 'components/core/Input/Input';
+import moment from 'moment';
 
 interface RentedBookCardProps {
   history?: boolean;
@@ -40,8 +41,10 @@ const RentedBookCard: React.FC<RentedBookCardProps> = ({
       </div>
       <div>Book title: {book.title}</div>
       <div>Book author: {book.author}</div>
-      <div>From: {book.startRentDate}</div>
-      <div style={{ marginBottom: '0.5rem' }}>To: {book.endRentDate}</div>
+      <div>From: {moment(book.startRentDate).format('DD/MM/YYYY')}</div>
+      <div style={{ marginBottom: '0.5rem' }}>
+        To: {moment(book.endRentDate).format('DD/MM/YYYY')}
+      </div>
       {cancelRentHandler && extendRentHandler ? (
         <>
           <div className={classes['c-rented-book-card__extend-rent']}>

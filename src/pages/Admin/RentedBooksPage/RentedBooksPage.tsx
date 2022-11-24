@@ -10,6 +10,8 @@ import { ToastContainer } from 'react-toastify';
 const RentedBooksPage: React.FC = () => {
   const [notReturnedBooks, setNotReturnedBooks] = useState<RentedBookCopyOverview[]>([]);
 
+  document.title = 'Rented books';
+
   const cancelRentHandler = (id: string) => {
     cancelRent(id)
       .then(() => {

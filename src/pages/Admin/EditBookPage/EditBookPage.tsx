@@ -13,6 +13,8 @@ const EditBookPage: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
 
+  document.title = 'Edit book';
+
   const [book, setBook] = useState<Book>({} as Book);
 
   const changeTitleHandler = (value: string): void => {

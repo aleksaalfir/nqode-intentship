@@ -24,6 +24,8 @@ const ProfilePage: React.FC = () => {
 
   const userId = getIdFromJwt();
 
+  document.title = 'Profile';
+
   const getUser = () => {
     axios
       .get(`/user/${userId}`)
