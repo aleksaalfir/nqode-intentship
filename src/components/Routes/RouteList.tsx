@@ -18,7 +18,6 @@ const RouteList = () => {
     return (
       <React.Fragment>
         <Route path="/login" element={<LoginPage />} />{' '}
-        <Route path="*" element={<NotFoundPage />} />
       </React.Fragment>
     );
   };
@@ -50,7 +49,6 @@ const RouteList = () => {
             </StandardLayout>
           }
         />
-        <Route path="*" element={<NotFoundPage />} />
       </React.Fragment>
     );
   };
@@ -67,7 +65,6 @@ const RouteList = () => {
           <Route path="/dashboard/rents" element={<RentedBooksPage />} />
           <Route path="/dashboard/book/edit/:id" element={<EditBookPage />} />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
       </React.Fragment>
     );
   };
@@ -82,7 +79,12 @@ const RouteList = () => {
     return getOpenRoutes();
   };
 
-  return <Routes>{getAllowedRoutes()}</Routes>;
+  return (
+    <Routes>
+      {getAllowedRoutes()}
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  );
 };
 
 export default RouteList;

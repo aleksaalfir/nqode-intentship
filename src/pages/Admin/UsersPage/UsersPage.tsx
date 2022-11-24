@@ -4,7 +4,7 @@ import axios from '../../../axios/axiosConfig';
 import User from '../../../components/Users/User/User';
 import UserModel from 'model/UserModel';
 import { ToastContainer, toast } from 'react-toastify';
-import { toastError, toastSuccess } from 'services/toastService';
+import { toastError, toastSuccess, toastWarn } from 'services/toastService';
 
 const UsersPage: React.FC = () => {
   const [users, setUsers] = useState<UserModel[]>([]);
@@ -17,7 +17,16 @@ const UsersPage: React.FC = () => {
 
   document.title = 'Users';
 
-  const editUser = (id: number | string, user: UserModel): void => {
+  const editUser = (id: number | string, user: UserModel) => {
+    if (
+      user.address === '' ||
+      user.email === '' ||
+      user.firstName === '' ||
+      user.lastName === '' ||
+      user.phoneNumber === ''
+    ) {
+      return toastWarn('Please fill all the fields');
+    }
     axios
       .put(`/user/${id}`, user)
       .then(() => {
