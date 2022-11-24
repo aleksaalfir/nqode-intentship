@@ -17,6 +17,8 @@
     margin-right: $space-xl;
 
     background-color: $color-blue;
+
+    transition: width 1s;
   }
 
   &__section-closed {
@@ -31,6 +33,8 @@
     margin-right: $space-xl;
 
     background-color: $color-blue;
+
+    transition: width 1s;
   }
 
   &__section-main {
