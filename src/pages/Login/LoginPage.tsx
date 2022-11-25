@@ -43,9 +43,9 @@ const LoginPage: React.FC = () => {
   return (
     <div className={classes['c-login']}>
       <div className={classes['c-login__about']}>
-        <div className={classes['c-login__about-logo']}>nQode</div>
+        <div className={classes['c-login__about-logo']}>nLibrary</div>
         <div className={classes['c-login__about-moto']}>
-          Empowering your business by delivering <strong>outstanding</strong> software solutions
+          A library is not a luxury but one of the <strong>necessities</strong> of life.
         </div>
       </div>
       <div className={classes['c-login__info']}>

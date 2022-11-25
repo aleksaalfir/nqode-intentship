@@ -20,12 +20,15 @@
 
     color: $color-white;
 
+    font-family: 'Secular One', sans-serif;
     font-size: $space-big;
   }
 
   &__about-moto {
     text-align: center;
-    font-size: $fs-large;
+
+    font-family: 'Caveat', cursive;
+    font-size: 2.5rem;
     color: $color-white;
   }
 

@@ -9,7 +9,7 @@ import Input from 'components/core/Input/Input';
 import { getBook } from 'services/api/bookService';
 import { rentBook } from 'services/api/rentService';
 import { createBookCopy } from 'services/api/bookCopyService';
-import { toastError, toastSuccess } from 'services/toastService';
+import { toastError, toastSuccess, toastWarn } from 'services/toastService';
 import { ToastContainer } from 'react-toastify';
 
 interface BookCopy {
@@ -29,6 +29,13 @@ const BookAboutPage: React.FC = () => {
   };
 
   const rentBookHandler = () => {
+    const parsedDays = Number(days);
+    if (days === '') {
+      return toastWarn('Please enter the number of the days.');
+    }
+    if (parsedDays > 31) {
+      return toastWarn('You cant rent book for more then 31 days.');
+    }
     rentBook(book.id, days)
       .then(() => {
         toastSuccess(`You have successfully rented this book for ${days} days.`);
