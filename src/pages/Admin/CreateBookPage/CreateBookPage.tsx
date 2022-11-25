@@ -5,7 +5,7 @@ import classes from './CreateBookPage.module.scss';
 import Book from 'model/Book';
 import { useNavigate } from 'react-router-dom';
 import { createBook } from 'services/api/bookService';
-import { toastError, toastWarn, toastSuccess } from 'services/toastService';
+import { toastWarn, toastSuccess } from 'services/toastService';
 
 const CreateBookPage: React.FC = () => {
   const [book, setBook] = useState<Book>({} as Book);

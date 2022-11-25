@@ -3,7 +3,7 @@ import classes from './UsersPage.module.scss';
 import axios from '../../../axios/axiosConfig';
 import User from '../../../components/Users/User/User';
 import UserModel from 'model/UserModel';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import { toastError, toastSuccess, toastWarn } from 'services/toastService';
 import Button from 'components/core/Button/Button';
 import Input from 'components/core/Input/Input';
@@ -14,7 +14,6 @@ const emailRegex =
 
 const UsersPage: React.FC = () => {
   const [users, setUsers] = useState<UserModel[]>([]);
-  const [openModal, setOpenModal] = useState<boolean>(false);
   const [newUser, setNewUser] = useState<UserModel>({} as UserModel);
 
   const getUsers = (): void => {

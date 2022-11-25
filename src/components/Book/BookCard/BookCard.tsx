@@ -16,7 +16,7 @@ const BookCard: React.FC<BookProps> = ({ book: { id, title, author, numOfCopies 
       className={classes['c-book-card']}
     >
       <div className={classes['c-book-card__image-holder']}>
-        <img src={image} className={classes['c-book-card__image']} />
+        <img src={image} className={classes['c-book-card__image']} alt="book-cover" />
       </div>
       <div className={classes['c-book-card__info']}>
         <div className={classes['c-book-card__book-title']}>{title}</div>

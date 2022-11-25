@@ -63,7 +63,7 @@ const EditBookPage: React.FC = () => {
   return (
     <div className={classes['c-book-details']}>
       <div className={classes['c-book-details__image-holder']}>
-        <img src={image} className={classes['c-book-details-image']} />
+        <img src={image} className={classes['c-book-details-image']} alt="book-ss-about" />
       </div>
       <div className={classes['c-book-details__about']}>
         <Input

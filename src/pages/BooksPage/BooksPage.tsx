@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from '../../axios/axiosConfig';
 import BookCard from '../../components/Book/BookCard/BookCard';
 import classes from './BooksPage.module.scss';
 import Book from 'model/Book';

@@ -2,14 +2,13 @@ import React, { useState } from 'react';
 import axios from '../../axios/axiosConfig';
 import Button from 'components/core/Button/Button';
 import Input from 'components/core/Input/Input';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import classes from './LoginPage.module.scss';
 import { isAdministrator, isUser } from 'services/authService';
 
 const LoginPage: React.FC = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [inputError, setInputError] = useState(false);
-  const navigate = useNavigate();
 
   const changeEmailHandler = (value: string): void => {
     setLoginData((prevLoginData) => ({ ...prevLoginData, email: value }));

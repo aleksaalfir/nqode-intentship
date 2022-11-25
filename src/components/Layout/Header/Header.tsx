@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { getDecodedJwt, logout } from 'services/authService';
 import classes from './Header.module.scss';
 import { isAdministrator } from 'services/authService';

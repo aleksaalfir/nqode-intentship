@@ -14,7 +14,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import DashboardLink from './DashboardLink';
 import { logout } from 'services/authService';
-import path from 'path';
 
 const Dashboard = () => {
   const { pathname } = useLocation();
@@ -24,7 +23,7 @@ const Dashboard = () => {
     if (pathname === '/dashboard' || pathname === '/dashboard/') {
       navigate('/dashboard/books');
     }
-  }, [pathname]);
+  }, [pathname, navigate]);
 
   return (
     <div className={classes['c-dashboard']}>

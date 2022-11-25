@@ -1,5 +1,4 @@
 import React from 'react';
-import RentedBookCopy from 'model/RentedBookCopy';
 import classes from './CurrentlyRentedBooks.module.scss';
 import RentedBookCard from '../RentedBookCard/RentedBookCard';
 import RentedBookCopyOverview from 'model/RentedBookCopyOverview';

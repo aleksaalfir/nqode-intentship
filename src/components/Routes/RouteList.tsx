@@ -1,4 +1,4 @@
-import React, { ReactFragment } from 'react';
+import React from 'react';
 import StandardLayout from 'components/Layout/StandardLayout';
 import CreateBookPage from 'pages/Admin/CreateBookPage/CreateBookPage';
 import EditBookPage from 'pages/Admin/EditBookPage/EditBookPage';
@@ -8,7 +8,7 @@ import BookAboutPage from 'pages/BookAboutPage/BookAboutPage';
 import BooksPage from 'pages/BooksPage/BooksPage';
 import LoginPage from 'pages/Login/LoginPage';
 import ProfilePage from 'pages/ProfilePage/ProfilePage';
-import { Navigate, Route, RouteObject, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { isAdministrator, isUser } from '../../services/authService';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import Dashboard from 'components/Layout/Dashboard/Dashboard';

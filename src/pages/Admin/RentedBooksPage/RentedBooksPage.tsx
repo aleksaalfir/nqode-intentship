@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import RentedBookCard from 'components/Profile/RentedBookCard/RentedBookCard';
 import RentedBookCopyOverview from 'model/RentedBookCopyOverview';
 import classes from './RentedBooksPage.module.scss';
 import NotReturnedRentedBooks from '../../../components/RentedBook/NotReturnedRentedBooks/NotReturnedRentedBooks';

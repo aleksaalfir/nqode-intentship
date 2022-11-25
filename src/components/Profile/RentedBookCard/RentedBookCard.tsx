@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import RentedBookCopy from 'model/RentedBookCopy';
 import classes from './RentedBookCard.module.scss';
 import RentedBookCopyOverview from 'model/RentedBookCopyOverview';
 import Button from 'components/core/Button/Button';

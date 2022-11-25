@@ -63,7 +63,7 @@ const BookAboutPage: React.FC = () => {
   return (
     <div className={classes['c-book-details']}>
       <div className={classes['c-book-details__image-holder']}>
-        <img src={image} className={classes['c-book-details__image']} />
+        <img src={image} className={classes['c-book-details__image']} alt="book-about-asd" />
       </div>
       <div className={classes['c-book-details__about']}>
         <h1>{book.title}</h1>

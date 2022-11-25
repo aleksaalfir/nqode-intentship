@@ -1,12 +1,7 @@
 import React from 'react';
 import classes from './DetailText.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faEnvelope,
-  faPhone,
-  faLocationDot,
-  IconDefinition
-} from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 interface DetailTextProps {
   icon?: IconDefinition;
