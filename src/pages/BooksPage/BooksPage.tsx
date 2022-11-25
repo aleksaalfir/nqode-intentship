@@ -11,8 +11,6 @@ const BooksPage: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
   const [searchInput, setSearchInput] = useState<string>('');
 
-  document.title = 'Books';
-
   const searchBooksHandler = (): void => {
     getBooks().then((data) => {
       const { content: dataBooks } = data;

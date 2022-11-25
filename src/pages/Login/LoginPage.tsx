@@ -11,8 +11,6 @@ const LoginPage: React.FC = () => {
   const [inputError, setInputError] = useState(false);
   const navigate = useNavigate();
 
-  document.title = 'Login';
-
   const changeEmailHandler = (value: string): void => {
     setLoginData((prevLoginData) => ({ ...prevLoginData, email: value }));
   };

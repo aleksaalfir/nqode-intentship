@@ -17,7 +17,6 @@ interface BookCopy {
   identifier: string;
   bookId: string;
 }
-document.title = 'Book';
 
 const BookAboutPage: React.FC = () => {
   const { id } = useParams();

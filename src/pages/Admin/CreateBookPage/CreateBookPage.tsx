@@ -5,13 +5,11 @@ import classes from './CreateBookPage.module.scss';
 import Book from 'model/Book';
 import { useNavigate } from 'react-router-dom';
 import { createBook } from 'services/api/bookService';
-import { toastError, toastWarn } from 'services/toastService';
+import { toastError, toastWarn, toastSuccess } from 'services/toastService';
 
 const CreateBookPage: React.FC = () => {
   const [book, setBook] = useState<Book>({} as Book);
   const navigate = useNavigate();
-
-  document.title = 'Add book';
 
   const changeHandler = (value: string, prop?: string): void => {
     setBook((prevBook) => ({ ...prevBook, [prop!]: value }));
@@ -25,7 +23,9 @@ const CreateBookPage: React.FC = () => {
     if (book.author === '' || book.description === '' || book.title === '' || book.imagePath === '')
       return toastWarn('Please fill all the fields.');
     createBook(book)
-      .then(() => {})
+      .then(() => {
+        toastSuccess('Book created.');
+      })
       .catch(() => {
         navigate('/error-page');
       });

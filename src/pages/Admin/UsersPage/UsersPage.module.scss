@@ -17,4 +17,11 @@
 
     color: $color-blue;
   }
+
+  &__add-user {
+    background-color: $color-greyish;
+
+    border-radius: $space;
+    border: 1px solid $color-blue;
+  }
 }

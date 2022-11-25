@@ -30,7 +30,7 @@ const Dashboard = () => {
     <div className={classes['c-dashboard']}>
       {toggleSections ? (
         <div className={classes['c-dashboard__section']}>
-          <div className={classes['c-dashboard__section-main']}>
+          <div className={classes['c-dashboard__main-links']}>
             <div className={classes['c-dashboard__section-arrow']}>
               <FontAwesomeIcon
                 icon={faArrowLeft}
@@ -42,7 +42,7 @@ const Dashboard = () => {
             <DashboardLink icon={faChartSimple} text={'Rents'} url={'/dashboard/rents'} />
             <DashboardLink icon={faUsers} text={'Users'} url={'/dashboard/manage-users'} />
           </div>
-          <div className={classes['c-dashboard__section-secondary']}>
+          <div className={classes['c-dashboard__secondary-links']}>
             <DashboardLink icon={faUser} text={'Profile'} url={'/dashboard/profile'} />
             <li className={classes['c-dashboard__nav-link']} onClick={() => logout()}>
               <FontAwesomeIcon icon={faRightFromBracket} className={classes['c-dashboard__icon']} />
@@ -51,8 +51,10 @@ const Dashboard = () => {
           </div>
         </div>
       ) : (
-        <div className={classes['c-dashboard__section-closed']}>
-          <div className={classes['c-dashboard__section-main']}>
+        <div
+          className={`${classes['c-dashboard__section']} ${classes['c-dashboard__section--closed']}`}
+        >
+          <div className={classes['c-dashboard__main-links']}>
             <div className={classes['c-dashboard__section-arrow']}>
               <FontAwesomeIcon
                 icon={faArrowRight}
@@ -64,7 +66,7 @@ const Dashboard = () => {
             <DashboardLink icon={faChartSimple} url={'/dashboard/rents'} />
             <DashboardLink icon={faUsers} url={'/dashboard/manage-users'} />
           </div>
-          <div className={classes['c-dashboard__section-secondary']}>
+          <div className={classes['c-dashboard__secondary-links']}>
             <DashboardLink icon={faUser} url={'/dashboard/profile'} />
             <li className={classes['c-dashboard__nav-link']} onClick={() => logout()}>
               <FontAwesomeIcon icon={faRightFromBracket} className={classes['c-dashboard__icon']} />

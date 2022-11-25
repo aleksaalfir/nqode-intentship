@@ -43,7 +43,6 @@ export const isTokenExpired = (): boolean => {
   let currentDate = new Date();
 
   if (token!.exp * 1000 < currentDate.getTime()) {
-    localStorage.removeItem('token');
     return true;
   }
   return false;
