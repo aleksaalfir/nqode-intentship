@@ -17,7 +17,7 @@ const RouteList = () => {
   const getOpenRoutes = () => {
     return (
       <React.Fragment>
-        <Route path="/login" element={<LoginPage />} />{' '}
+        <Route path="/" element={<LoginPage />} />{' '}
       </React.Fragment>
     );
   };

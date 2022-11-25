@@ -35,7 +35,7 @@ export const isUser = (): boolean => {
 
 export const logout = () => {
   localStorage.removeItem('token');
-  window.location.replace('/login');
+  window.location.replace('/');
 };
 
 export const isTokenExpired = (): boolean => {
