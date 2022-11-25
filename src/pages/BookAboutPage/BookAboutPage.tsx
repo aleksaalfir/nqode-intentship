@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import classes from './BookAboutPage.module.scss';
 import image from 'util/327752.jpeg';

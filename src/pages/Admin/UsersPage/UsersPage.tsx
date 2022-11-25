@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import React, { useState, useEffect } from 'react';
 import classes from './UsersPage.module.scss';
 import axios from '../../../axios/axiosConfig';
