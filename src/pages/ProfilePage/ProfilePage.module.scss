@@ -1,0 +1,26 @@
+@import 'variables.scss';
+
+.c-user-profile {
+  display: flex;
+  flex-direction: column;
+
+  width: 75%;
+  margin: 0 auto;
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+
+    margin-top: $space-l;
+  }
+
+  &__title {
+    margin-bottom: $space-l;
+  }
+
+  &__one-info {
+    margin-bottom: $space-s;
+
+    font-size: $fs-medium;
+  }
+}

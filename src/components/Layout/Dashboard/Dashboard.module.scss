@@ -1,0 +1,116 @@
+@import 'variables.scss';
+
+.c-dashboard {
+  display: flex;
+
+  width: 100%;
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 15%;
+    height: 100vh;
+
+    margin-right: $space-xl;
+
+    background-color: $color-blue;
+
+    transition: width 1s;
+
+    &--closed {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 3vw;
+      height: 100vh;
+
+      margin-right: $space-xl;
+
+      background-color: $color-blue;
+
+      transition: width 1s;
+    }
+  }
+
+  &__main-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+  }
+
+  &__secondary-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 100%;
+
+    border-top: 1px solid $color-white;
+  }
+
+  &__nav-link {
+    color: $color-white;
+    font-size: $fs-large;
+
+    width: 100%;
+
+    text-align: center;
+
+    padding: $space;
+
+    &:hover {
+      cursor: pointer;
+
+      color: $color-blue;
+
+      background-color: $color-white;
+    }
+
+    &--active {
+      width: 100%;
+
+      color: $color-blue;
+
+      background-color: $color-white;
+    }
+  }
+
+  &__section-arrow {
+    color: $color-white;
+    font-size: $fs-medium;
+
+    width: 100%;
+
+    margin-right: $space-xl;
+    padding: $space-s 0;
+
+    font-size: $fs-large;
+
+    text-align: right;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__icon {
+    margin-right: $space-s;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+
+    margin-right: $space-xl;
+    padding-top: $space-xl;
+  }
+}

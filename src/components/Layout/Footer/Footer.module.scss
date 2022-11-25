@@ -1,0 +1,14 @@
+@import 'variables.scss';
+
+.c-footer {
+  width: 100%;
+  height: $space-xl;
+
+  bottom: 0;
+
+  padding: $space-s 0;
+  text-align: center;
+
+  background-color: $color-blue;
+  color: $color-white;
+}

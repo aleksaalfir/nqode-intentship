@@ -1,0 +1,27 @@
+@import 'variables.scss';
+
+.c-users {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+
+  &__table-head {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    padding: $space;
+
+    font-weight: bold;
+    font-size: $fs-large;
+    text-align: center;
+
+    color: $color-blue;
+  }
+
+  &__add-user {
+    background-color: $color-greyish;
+
+    border-radius: $space;
+    border: 1px solid $color-blue;
+  }
+}

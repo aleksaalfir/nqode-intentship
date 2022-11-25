@@ -1,0 +1,39 @@
+@import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Oxygen&display=swap');
+
+.c-rented-book-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  width: 250px;
+  height: 250px;
+
+  margin-right: $space-l;
+  margin-bottom: $space-l;
+  padding: $space-l;
+
+  border-radius: 8px;
+
+  font-family: 'Oxygen', sans-serif;
+  font-size: $fs-medium;
+  color: $color-white;
+  background-color: $color-blue;
+
+  &--secondary {
+    background-color: gray;
+
+    color: black;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: $space-s;
+  }
+
+  &__exten-rent {
+    display: flex;
+    align-items: center;
+  }
+}

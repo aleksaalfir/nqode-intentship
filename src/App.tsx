@@ -1,15 +1,14 @@
 import React from 'react';
-import classes from './App.module.scss';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import RouteList from 'components/Routes/RouteList';
 
 const App = () => {
   return (
-    <div className={classes['c-app']}>
-      BEM example:
-      <button className={classes['c-app__button']}>Button primary</button>
-      <button className={`${classes['c-app__button']} ${classes['c-app__button--secondary']}`}>
-        Button secondary
-      </button>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/*" element={<RouteList />} />
+      </Routes>
+    </Router>
   );
 };
 

@@ -1,0 +1,61 @@
+@import 'variables.scss';
+
+.c-user {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin-bottom: $space;
+
+  border-radius: $space-l;
+  background-color: $color-greyish;
+
+  &__short-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    padding: $space;
+
+    border-radius: $space-l;
+
+    text-align: center;
+    color: $color-white;
+
+    background-color: $color-blue;
+
+    &:hover {
+      cursor: pointer;
+
+      border: 2px solid $color-blue;
+
+      color: $color-blue;
+      background-color: $color-white;
+    }
+  }
+
+  &__all-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: $space;
+    margin-bottom: $space;
+  }
+
+  &__input-holder {
+    display: flex;
+    align-items: center;
+    padding: $space-xs;
+  }
+
+  &__button-holder {
+    display: flex;
+    justify-content: space-between;
+    width: 130px;
+  }
+
+  &__input {
+    display: flex;
+    width: 50%;
+  }
+}

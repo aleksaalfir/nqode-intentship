@@ -1,0 +1,43 @@
+@import 'variables.scss';
+
+.c-page-not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100vh;
+
+  color: $color-white;
+  background-color: $color-blue;
+
+  &__title {
+    font-size: 4rem;
+
+    margin-bottom: $space;
+  }
+
+  &__message {
+    font-size: $fs-xlarge;
+
+    margin-bottom: $space;
+  }
+
+  &__mark {
+    font-size: 1.2rem;
+
+    margin-bottom: $space;
+  }
+
+  &__go-back {
+    text-decoration: underline;
+    font-size: 1.2rem;
+
+    margin-bottom: $space;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

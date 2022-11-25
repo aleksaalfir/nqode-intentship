@@ -1,0 +1,20 @@
+@import 'variables.scss';
+
+.c-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  margin-right: $space;
+
+  &__label {
+    margin-bottom: $space-xs;
+    font-size: $fs-large;
+  }
+
+  &__input-field {
+    padding: $space-s;
+    border-radius: $space-xs;
+    border-color: $color-blue;
+  }
+}

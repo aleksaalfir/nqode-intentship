@@ -1,0 +1,15 @@
+@import 'variables.scss';
+
+.c-rented-books {
+  margin-top: $space-l;
+  margin-bottom: $space-l;
+
+  &__books {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__title {
+    margin-bottom: $space;
+  }
+}

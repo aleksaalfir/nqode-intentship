@@ -1,0 +1,50 @@
+@import 'variables.scss';
+
+.c-button {
+  padding: $space-s;
+  // margin-right: $space-s;
+
+  border-radius: $space-xs;
+  border-color: $color-blue;
+
+  color: $color-white;
+  background-color: $color-blue;
+
+  font-size: $fs-medium;
+
+  &:hover {
+    cursor: pointer;
+
+    border-color: $color-blue;
+    color: $color-blue;
+    background-color: $color-white;
+  }
+
+  &--secondary {
+    border-color: $color-gray;
+    color: $color-white;
+    background-color: $color-gray;
+
+    &:hover {
+      cursor: pointer;
+
+      border-color: $color-gray;
+      color: $color-gray;
+      background-color: $color-white;
+    }
+  }
+
+  &--danger {
+    border-color: $color-red;
+    color: $color-white;
+    background-color: $color-red;
+
+    &:hover {
+      cursor: pointer;
+
+      border-color: $color-red;
+      color: $color-red;
+      background-color: $color-white;
+    }
+  }
+}
