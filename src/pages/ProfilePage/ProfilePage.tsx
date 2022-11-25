@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect } from 'react';
 import RentedBookCopyOverview from 'model/RentedBookCopyOverview';
 import { getIdFromJwt } from 'services/authService';
