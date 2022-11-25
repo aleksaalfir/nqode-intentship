@@ -8,10 +8,24 @@ const Header = () => {
   const getUserLinks = () => {
     return (
       <>
-        <NavLink to={'/books'} className={classes['c-header__nav-link']}>
+        <NavLink
+          to="/books"
+          className={({ isActive }) =>
+            isActive
+              ? `${classes['c-header__nav-link']} ${classes[`c-header__nav-link--active`]}`
+              : classes['c-header__nav-link']
+          }
+        >
           Books
         </NavLink>
-        <NavLink to={'/profile'} className={classes['c-header__nav-link']}>
+        <NavLink
+          to="/profile"
+          className={({ isActive }) =>
+            isActive
+              ? `${classes['c-header__nav-link']} ${classes[`c-header__nav-link--active`]}`
+              : classes['c-header__nav-link']
+          }
+        >
           Profile
         </NavLink>
       </>

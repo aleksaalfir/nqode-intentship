@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import classes from './NotFoundPage.module.scss';
 
 const NotFoundPage = () => {
+  document.title = 'Page not found';
   const navigate = useNavigate();
   return (
     <div className={classes['c-page-not-found']}>

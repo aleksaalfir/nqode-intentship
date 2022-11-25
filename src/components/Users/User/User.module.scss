@@ -48,6 +48,12 @@
     padding: $space-xs;
   }
 
+  &__button-holder {
+    display: flex;
+    justify-content: space-between;
+    width: 130px;
+  }
+
   &__input {
     display: flex;
     width: 50%;

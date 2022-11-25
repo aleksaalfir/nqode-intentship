@@ -6,7 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getBook, editBook, deleteBook } from 'services/api/bookService';
 import Input from 'components/core/Input/Input';
 import Book from 'model/Book';
-import { toastError, toastSuccess } from 'services/toastService';
+import { toastError, toastSuccess, toastWarn } from 'services/toastService';
 import { ToastContainer } from 'react-toastify';
 
 const EditBookPage: React.FC = () => {
@@ -36,7 +36,10 @@ const EditBookPage: React.FC = () => {
       .catch(() => toastError('Something went wrong. Try again later.'));
   };
 
-  const editBookHandler = (): void => {
+  const editBookHandler = () => {
+    if (book.author === '' || book.description === '' || book.title === '')
+      return toastWarn('Please fill all the fields.');
+
     editBook(book.id, book)
       .then((data) => {
         setBook(data);

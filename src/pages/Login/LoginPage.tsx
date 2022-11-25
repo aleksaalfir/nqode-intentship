@@ -4,10 +4,12 @@ import Button from 'components/core/Button/Button';
 import Input from 'components/core/Input/Input';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import classes from './LoginPage.module.scss';
+import { isAdministrator, isUser } from 'services/authService';
 
 const LoginPage: React.FC = () => {
   const [loginData, setLoginData] = useState({ email: '', password: '' });
   const [inputError, setInputError] = useState(false);
+  const navigate = useNavigate();
 
   const changeEmailHandler = (value: string): void => {
     setLoginData((prevLoginData) => ({ ...prevLoginData, email: value }));
@@ -17,13 +19,18 @@ const LoginPage: React.FC = () => {
     setLoginData((prevLoginData) => ({ ...prevLoginData, password: value }));
   };
 
-  const submitLoginHandler = (): void => {
-    axios
+  const submitLoginHandler = async () => {
+    await axios
       .post(`/authenticate`, loginData)
       .then((response) => {
         if (response.status === 200) {
           localStorage.setItem('token', response.data.accessToken);
-          window.location.replace('/books');
+          if (isAdministrator()) {
+            window.location.replace('/dashboard/rents');
+          }
+          if (isUser()) {
+            window.location.replace('/books');
+          }
         }
       })
       .catch((err) => {
@@ -34,9 +41,9 @@ const LoginPage: React.FC = () => {
   return (
     <div className={classes['c-login']}>
       <div className={classes['c-login__about']}>
-        <div className={classes['c-login__about-logo']}>nQode</div>
+        <div className={classes['c-login__about-logo']}>nLibrary</div>
         <div className={classes['c-login__about-moto']}>
-          Empowering your business by delivering <strong>outstanding</strong> software solutions
+          A library is not a luxury but one of the <strong>necessities</strong> of life.
         </div>
       </div>
       <div className={classes['c-login__info']}>

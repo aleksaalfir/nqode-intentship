@@ -1,4 +1,6 @@
 @import 'variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500&display=swap');
 
 .c-login {
   height: 100vh;
@@ -20,12 +22,15 @@
 
     color: $color-white;
 
+    font-family: 'Secular One', sans-serif;
     font-size: $space-big;
   }
 
   &__about-moto {
     text-align: center;
-    font-size: $fs-large;
+
+    font-family: 'Caveat', cursive;
+    font-size: 2.5rem;
     color: $color-white;
   }
 
